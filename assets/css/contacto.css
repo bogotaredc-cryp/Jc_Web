@@ -1,0 +1,316 @@
+/* =====================
+   HEADER SIMPLE
+===================== */
+
+.header-simple {
+  padding: 100px 0 60px;
+  text-align: center;
+}
+
+.header-simple h2 {
+   font-size: clamp(3rem, 3vw, 5.5rem);
+
+  color: var(--color-brand-dark);
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.header-simple p {
+  max-width: 640px;
+  margin: auto;
+  color: var(--color-text-soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* línea decorativa */
+.header-simple::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  margin: 28px auto 0;
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+
+
+/* =====================
+   CONTACTO LAYOUT
+===================== */
+
+.contacto {
+  padding: 90px 0;
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+
+/* =====================
+   FORMULARIO
+===================== */
+
+.contacto-form {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(20, 61, 42, 0.08);
+
+  padding: 36px;
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.contacto-form h2 {
+  margin-bottom: 10px;
+  color: var(--color-brand-dark);
+}
+
+.form-subtext {
+  font-size: 14px;
+  color: var(--color-text-soft);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+
+/* =====================
+   FORM
+===================== */
+
+.contacto-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+/* =====================
+   INPUTS
+===================== */
+
+.contacto-form input,
+.contacto-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(20, 61, 42, 0.12);
+
+  background: rgba(255,255,255,0.85);
+  color: var(--color-text);
+
+  font-size: 15px;
+
+  transition: all 0.25s ease;
+}
+
+.contacto-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* FOCUS */
+.contacto-form input:focus,
+.contacto-form textarea:focus {
+  outline: none;
+
+  background: var(--color-white);
+
+  border-color: var(--color-accent);
+
+  box-shadow: 0 0 0 4px rgba(201, 106, 27, 0.12);
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================
+   BOTONES
+===================== */
+
+.contacto-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* PRIMARY */
+
+.contacto-form .btn {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+
+  transition: all 0.25s ease;
+}
+
+.contacto-form .btn:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+/* OUTLINE */
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--color-brand);
+  color: var(--color-brand-dark);
+}
+
+.btn-outline:hover {
+  background: var(--color-brand);
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+
+/* =====================
+   INFO LATERAL
+===================== */
+
+.contacto-info h2 {
+  margin-bottom: 15px;
+  color: var(--color-brand-dark);
+}
+
+.contacto-extra {
+  margin-top: 20px;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+
+/* =====================
+   TARJETAS INFO
+===================== */
+
+.info-item {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(20,61,42,0.08);
+
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-card);
+
+  margin-bottom: 16px;
+
+  transition: all 0.25s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201,106,27,0.25);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.info-item a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ICONOS */
+
+.info-item i {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(201,106,27,0.12);
+  color: var(--color-accent);
+
+  font-size: 18px;
+}
+
+
+/* =====================
+   TIPOS DE CONTACTO
+===================== */
+
+.contacto-tipos {
+  margin-top: 28px;
+
+  padding: 22px;
+
+  background: rgba(255,255,255,0.65);
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid rgba(20,61,42,0.08);
+}
+
+.contacto-tipos ul {
+  padding-left: 18px;
+}
+
+.contacto-tipos li {
+  margin-bottom: 10px;
+  color: var(--color-text-soft);
+  line-height: 1.6;
+}
+
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+@media (max-width: 992px) {
+
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .header-simple {
+    padding: 80px 0 40px;
+  }
+
+  .header-simple h2 {
+    font-size: 32px;
+  }
+
+  .contacto {
+    padding: 70px 0;
+  }
+
+  .contacto-form,
+  .contacto-tipos {
+    padding: 24px;
+  }
+
+  .contacto-info {
+    text-align: center;
+  }
+
+  .info-item a {
+    justify-content: center;
+  }
+
+  .contacto-actions {
+    justify-content: center;
+  }
+
+}
