@@ -79,20 +79,27 @@
 
 <body>
     <header>
-        <div class="container">
-            <div class="brand">
-                <img src="/assets/img/Logo.png" alt="" class="logo">
-                <h1>Jose Cuesta Novoa</h1>
-            </div>
-            <nav>
-                <a href="/index.html">Inicio</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="propuestas.html">Propuestas</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Participación</a>
-            </nav>
-        </div>
-    </header>
+  <div class="container">
+
+    <div class="brand">
+      <img src="/assets/img/Logo.png" alt="Logo" class="logo">
+      <h1>Jose Cuesta Novoa</h1>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <nav id="navMenu">
+      <a href="/index.html">Inicio</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="propuestas.html">Propuestas</a>
+      <a href="blog.html">Blog</a>
+      <a href="participacion.html">Participación</a>
+    </nav>
+
+  </div>
+</header>
     <main>
 
         <!-- HERO -->
@@ -178,6 +185,7 @@
   </a>
 
     <script type="module" src="/assets/js/blog.js"></script>
+     <script src="/assets/js/menu.js"></script>
 </body>
 
 </html>

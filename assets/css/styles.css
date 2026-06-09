@@ -207,6 +207,30 @@ nav a:hover::after {
 }
 
 /* =====================
+   MENU HAMBURGUESA
+===================== */
+
+.menu-toggle{
+  display:none;
+  color:white;
+  font-size:1.7rem;
+  cursor:pointer;
+
+  transition:
+      transform .3s ease,
+      opacity .3s ease;
+}
+
+.menu-toggle i{
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+.menu-toggle:hover{
+  transform:scale(1.08);
+}
+/* =====================
    BUTTONS
 ===================== */
 .btn {
@@ -474,9 +498,7 @@ section {
 }
 
 .modal-wrapper {
-  width: fit-content;
-
-  max-width: 90vw;
+  width: 100%;
 
   margin: auto;
 
@@ -495,15 +517,14 @@ section {
   height: auto;
 
   object-fit: contain;
-
-  border-radius: 18px 18px 0 0;
 }
+
 .modal-info {
   width: 100%;
 
   background: var(--color-surface);
 
-  padding: 18px;
+  padding: 18px 24px;
 
   border-radius: 0 0 18px 18px;
 
@@ -571,14 +592,68 @@ section {
 ===================== */
 @media (max-width: 768px) {
 
-  header .container {
-    flex-direction: column;
-    gap: 18px;
+  header .container{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
+  .menu-toggle{
+    display:block;
+  }
+
+  nav{
+    position:absolute;
+    top:100%;
+    left:0;
+
+    width:100%;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:0;
+
+    background:rgba(20,61,42,.98);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    max-height:0;
+    opacity:0;
+
+    overflow:hidden;
+
+    transition:
+      max-height .45s cubic-bezier(.4,0,.2,1),
+      opacity .3s ease;
+  }
+
+  nav.active{
+    max-height:400px;
+    opacity:1;
+  }
+
+  nav a{
+    width:100%;
+    text-align:center;
+    padding:1rem;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    transition:
+      background .25s ease,
+      padding-left .25s ease;
+  }
+
+  nav a:hover{
+    background:rgba(255,255,255,.05);
+    padding-left:12px;
+  }
+
+  nav a::after{
+    display:none;
   }
 
   .footer-grid {
