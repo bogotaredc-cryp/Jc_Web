@@ -484,38 +484,46 @@ clip-path: polygon(
 /* =====================
    CTA
 ===================== */
+.cta{
 
-.cta {
-  background:
+  
+ background:
     linear-gradient(
       135deg,
       var(--color-brand-dark),
-      var(--color-brand)
+      #1c5137
     );
 
-  color: var(--color-white);
 
-  text-align: center;
 
-  position: relative;
 
-  overflow: hidden;
+    color:var(--color-white);
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
 }
 
-.cta::before {
-  content: "";
+.cta::before{
 
-  position: absolute;
-  inset: 0;
+content:"";
 
-  background:
-    radial-gradient(
-      circle at bottom left,
-      rgba(224,161,38,0.16),
-      transparent 40%
-    );
+position:absolute;
 
-  pointer-events: none;
+inset:0;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.05),
+transparent
+);
+
 }
 
 .cta h2 {
@@ -561,6 +569,31 @@ clip-path: polygon(
   opacity: 0.95;
 }
 
+.cta blockquote{
+
+max-width:800px;
+
+margin:45px auto 0;
+
+padding:30px;
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(10px);
+
+border-left:5px solid var(--color-accent-light);
+
+border-radius:20px;
+
+font-size:1.35rem;
+
+font-style:italic;
+
+line-height:1.7;
+
+}
 /* =====================
    REVEAL
 ===================== */

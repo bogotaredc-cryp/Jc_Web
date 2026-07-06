@@ -6,11 +6,11 @@
   overflow: hidden;
 
   background:
-    linear-gradient(
-  rgba(20, 61, 42, 0.55),
-  rgba(20, 61, 42, 0.45)
+  linear-gradient(
+rgba(20,61,42,.45),
+rgba(20,61,42,.35)
 ),
-    url("");
+    url("/assets/img/ec680514-bfd6-4e42-83fe-e0b0378f521c.png");
 
   background-size: cover;
   background-position: center;

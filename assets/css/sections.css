@@ -214,6 +214,7 @@
 .card-content p {
   font-size: 0.9rem;
   color: var(--color-text-soft);
+  text-align: start;
 }
 
 /* MÉTRICA */
@@ -240,7 +241,7 @@
 
   display: flex;
   align-items: flex-end;
-
+  z-index: 3000;
   padding: 20px;
 
   opacity: 0;
