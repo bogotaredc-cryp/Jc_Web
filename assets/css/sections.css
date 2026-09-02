@@ -128,36 +128,44 @@
 .card.featured {
   grid-column: span 2;
   grid-row: span 2;
-  color: white;
+  color: var(--color-brand-dark);
+  background: white;
 }
 
+/* Imagen de la card */
 .card.featured img {
-  height: 100%;
-  object-fit: cover;
-}
-
-/* overlay oscuro */
-.card.featured .card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.1)
-  );
-
-  padding: 25px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
 }
 
-.card.featured h3,
-.card.featured p,
+/* Contenido debajo de la imagen */
+.card.featured .card-content {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  width: 100%;
+  background: white;
+  padding: 22px 25px 25px;
+}
+
+/* Colores normales */
+.card.featured h3 {
+  color: var(--color-brand-dark);
+}
+
+.card.featured p {
+  color: var(--color-text-soft);
+}
+
 .card.featured .card-metric {
-  color: white;
+  color: var(--color-brand);
 }
-
+.card.featured .card-overlay {
+  display: none;
+}
 /* =====================
    IMAGEN
 ===================== */
