@@ -40,8 +40,6 @@ const firebaseConfig = {
 
 };
 
-
-
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

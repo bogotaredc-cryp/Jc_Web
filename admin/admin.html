@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,21 +21,15 @@
 
     <div class="header-actions">
 
-  <a
-    href="../pages/"
-    class="view-blog"
-  >
-    Ver blog →
-  </a>
+      <a href="../pages/" class="view-blog">
+        Ver blog →
+      </a>
 
-  <button
-    id="logout-btn"
-    class="logout-btn"
-  >
-    Cerrar sesión
-  </button>
+      <button id="logout-btn" class="logout-btn">
+        Cerrar sesión
+      </button>
 
-</div>
+    </div>
   </header>
 
 
@@ -55,111 +49,84 @@
     </section>
 
     <!-- FORMULARIO NUEVA PUBLICACIÓN -->
-<section id="post-form-section" class="post-form-section hidden">
+    <section id="post-form-section" class="post-form-section hidden">
 
-  <div class="section-header">
-    <div>
-      <span class="section-label">NUEVO CONTENIDO</span>
-      <h2 id="form-title">Crear publicación</h2>
-    </div>
+      <div class="section-header">
+        <div>
+          <span class="section-label">NUEVO CONTENIDO</span>
+          <h2 id="form-title">Crear publicación</h2>
+        </div>
 
-    <button id="cancel-post-btn" class="secondary-btn">
-      Cancelar
-    </button>
-  </div>
-
-
-  <form id="post-form">
-
-    <div class="form-group">
-      <label for="title">Título</label>
-
-      <input
-        type="text"
-        id="title"
-        placeholder="Escribe el título de la publicación"
-        required
-      >
-    </div>
-
-
-    <div class="form-row">
-
-      <div class="form-group">
-        <label for="category">Categoría</label>
-
-        <input
-          type="text"
-          id="category"
-          placeholder="Ej: Territorio"
-          required
-        >
+        <button id="cancel-post-btn" class="secondary-btn">
+          Cancelar
+        </button>
       </div>
 
 
-      <div class="form-group">
-        <label for="author">Autor</label>
+      <form id="post-form">
 
-        <input
-          type="text"
-          id="author"
-          value="Equipo José Cuesta"
-          required
-        >
-      </div>
+        <div class="form-group">
+          <label for="title">Título</label>
 
-    </div>
+          <input type="text" id="title" placeholder="Escribe el título de la publicación" required>
+        </div>
 
 
-    <div class="form-group">
+        <div class="form-row">
 
-      <label for="image">
-        Ruta de la imagen
-      </label>
+          <div class="form-group">
+            <label for="category">Categoría</label>
 
-      <input
-        type="text"
-        id="image"
-        placeholder="../assets/img/blog1.jpg"
-        required
-      >
-
-      <small>
-        Ejemplo: ../assets/img/blog1.jpg
-      </small>
-
-    </div>
+            <input type="text" id="category" placeholder="Ej: Territorio" required>
+          </div>
 
 
-    <div class="form-group">
+          <div class="form-group">
+            <label for="author">Autor</label>
 
-      <label for="content">
-        Contenido
-      </label>
+            <input type="text" id="author" value="Equipo José Cuesta" required>
+          </div>
 
-      <textarea
-        id="content"
-        rows="12"
-        placeholder="Escribe aquí el contenido completo del artículo..."
-        required
-      ></textarea>
-
-    </div>
+        </div>
 
 
-    <div id="form-message" class="form-message"></div>
+        <div class="form-group">
+
+          <label for="image">
+            Ruta de la imagen
+          </label>
+
+          <input type="text" id="image" placeholder="../assets/img/blog1.jpg" required>
+
+          <small>
+            Ejemplo: ../assets/img/blog1.jpg
+          </small>
+
+        </div>
 
 
-    <button
-      type="submit"
-      class="primary-btn publish-btn"
-    >
-      Publicar artículo
-    </button>
+        <div class="form-group">
 
-  </form>
+          <label for="content">
+            Contenido
+          </label>
 
-</section>
+          <textarea id="content" rows="12" placeholder="Escribe aquí el contenido completo del artículo..."
+            required></textarea>
+
+        </div>
+
+
+        <div id="form-message" class="form-message"></div>
+
+
+        <button type="submit" class="primary-btn publish-btn">
+          Publicar artículo
+        </button>
+
+      </form>
+
+    </section>
 
     <!-- Publicaciones -->
     <section class="posts-section">
@@ -192,4 +159,5 @@
   <script type="module" src="admin.js"></script>
 
 </body>
+
 </html>
