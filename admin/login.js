@@ -215,7 +215,7 @@ loginForm.addEventListener(
 
 
       window.location.href =
-        "index.html";
+        "admin.html";
 
 
     } catch (error) {
