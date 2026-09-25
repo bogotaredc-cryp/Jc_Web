@@ -1,32 +1,55 @@
-/* =====================
+
+/* ======================================================
    HERO BLOG
-===================== */
+   ====================================================== */
+
 .hero-blog {
+
   position: relative;
+
   overflow: hidden;
 
+  min-height: 520px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
   background:
-  linear-gradient(
-rgba(20,61,42,.45),
-rgba(20,61,42,.35)
-),
+    linear-gradient(
+      rgba(20, 61, 42, 0.48),
+      rgba(20, 61, 42, 0.34)
+    ),
     url("/assets/img/ec680514-bfd6-4e42-83fe-e0b0378f521c.png");
 
   background-size: cover;
-  background-position: center;
+
+  /* Ajuste vertical del encuadre */
+  background-position: center 35%;
+
   background-repeat: no-repeat;
 
   color: var(--color-white);
 
-  padding: 150px 0;
+  padding: 100px 20px;
 
   text-align: center;
+
 }
-/* overlays ambientales */
+
+
+/* =========================
+   OVERLAYS AMBIENTALES
+========================= */
+
 .hero-blog::before {
+
   content: "";
 
   position: absolute;
+
   inset: 0;
 
   background:
@@ -35,6 +58,7 @@ rgba(20,61,42,.35)
       rgba(224, 161, 38, 0.18),
       transparent 35%
     ),
+
     radial-gradient(
       circle at bottom left,
       rgba(201, 106, 27, 0.12),
@@ -42,28 +66,58 @@ rgba(20,61,42,.35)
     );
 
   pointer-events: none;
+
 }
+
+
 .hero-blog::after {
+
   content: "";
+
   position: absolute;
+
   inset: 0;
 
-  opacity: 0.05;
+  opacity: 0.04;
 
-  background-image:
-    url("");
-
-  mix-blend-mode: overlay;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 50%,
+      transparent 100%
+    );
 
   pointer-events: none;
-}
-.hero-blog .container {
-  position: relative;
-  z-index: 2;
+
 }
 
+
+/* ======================================================
+   CONTENEDOR HERO
+   ====================================================== */
+
+.hero-blog .container {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: min(900px, 100%);
+
+  margin: auto;
+
+}
+
+
+/* ======================================================
+   TITULO HERO
+   ====================================================== */
+
 .hero-blog h2 {
-  font-size: clamp(2.5rem, 8vw, 4.2rem);
+
+  font-size:
+    clamp(2.5rem, 8vw, 4.2rem);
 
   line-height: 1.05;
 
@@ -73,86 +127,129 @@ rgba(20,61,42,.35)
 
   margin-bottom: 18px;
 
-  animation: fadeUp 0.8s ease;
+  animation:
+    fadeUp 0.8s ease;
+
 }
 
+
 .hero-blog p {
+
   font-size: 1.1rem;
+
+  line-height: 1.7;
 
   max-width: 760px;
 
   margin: auto;
 
-  color: rgba(255,255,255,0.88);
+  color:
+    rgba(255, 255, 255, 0.88);
 
-  animation: fadeUp 1s ease;
+  animation:
+    fadeUp 1s ease;
+
 }
+
+
+/* ======================================================
+   LABEL
+   ====================================================== */
+
 .hero-label {
+
   display: inline-block;
 
   font-size: 0.75rem;
+
   font-weight: 700;
 
   letter-spacing: 1px;
+
   text-transform: uppercase;
 
   color: var(--color-surface);
 
-  background: rgba(201, 106, 27, 0.12); /* naranja suave */
-  border: 1px solid rgba(201, 106, 27, 0.25);
+  background:
+    rgba(201, 106, 27, 0.16);
+
+  border:
+    1px solid rgba(201, 106, 27, 0.30);
 
   padding: 6px 12px;
+
   border-radius: 999px;
 
-  backdrop-filter: blur(4px);
+  backdrop-filter:
+    blur(5px);
 
   margin-bottom: 14px;
+
 }
-/* =====================
+
+
+/* ======================================================
    BLOG SECTION
-===================== */
+   ====================================================== */
 
 .blog {
+
   padding: 100px 0;
+
 }
 
+
 .blog h2 {
+
   text-align: center;
 
   margin-bottom: 60px;
 
   font-size: 2.5rem;
 
+  line-height: 1.15;
+
   color: var(--color-brand-dark);
 
   letter-spacing: -1px;
+
 }
 
-/* =====================
+
+/* ======================================================
    GRID
-===================== */
+   ====================================================== */
 
 .blog-grid {
+
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
   gap: 35px;
+
 }
 
-/* =====================
+
+/* ======================================================
    BLOG CARD
-===================== */
+   ====================================================== */
 
 .blog-card {
-  position: relative;
-  background: var(--color-surface);
 
-  border-radius: var(--radius-lg);
+  position: relative;
+
+  background:
+    var(--color-surface);
+
+  border-radius:
+    var(--radius-lg);
 
   overflow: hidden;
 
-  box-shadow: var(--shadow-card);
+  box-shadow:
+    var(--shadow-card);
 
   border:
     1px solid rgba(20, 61, 42, 0.06);
@@ -161,28 +258,46 @@ rgba(20,61,42,.35)
     transform 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
+
 }
 
+
 .blog-card:hover {
-  transform: translateY(-8px);
+
+  transform:
+    translateY(-8px);
 
   box-shadow:
-    0 20px 45px rgba(20, 61, 42, 0.14);
+    0 20px 45px
+    rgba(20, 61, 42, 0.14);
 
   border-color:
     rgba(201, 106, 27, 0.18);
+
 }
 
-/* =====================
-   IMG
-===================== */
+
+/* ======================================================
+   IMAGEN DE CARD
+   ====================================================== */
 
 .blog-card img {
+
+  display: block;
+
   width: 100%;
 
-  height: 240px;
+  aspect-ratio:
+    16 / 9;
+
+  height: auto;
 
   object-fit: cover;
+
+  object-position: center;
+
+  background:
+    #E9DDC7;
 
   transition:
     transform 0.45s ease,
@@ -191,21 +306,28 @@ rgba(20,61,42,.35)
   filter:
     contrast(1.03)
     saturate(0.96);
+
 }
 
+
 .blog-card:hover img {
-  transform: scale(1.04);
+
+  transform:
+    scale(1.04);
 
   filter:
     contrast(1.05)
     saturate(1.05);
+
 }
 
-/* =====================
-   CONTENT
-===================== */
+
+/* ======================================================
+   CONTENT CARD
+   ====================================================== */
 
 .blog-content {
+
   padding: 24px;
 
   display: flex;
@@ -213,19 +335,23 @@ rgba(20,61,42,.35)
   flex-direction: column;
 
   gap: 14px;
+
 }
 
-/* =====================
+
+/* ======================================================
    TAG
-===================== */
+   ====================================================== */
 
 .blog-tag {
+
   width: fit-content;
 
   background:
     rgba(201, 106, 27, 0.12);
 
-  color: var(--color-accent);
+  color:
+    var(--color-accent);
 
   padding: 6px 12px;
 
@@ -238,47 +364,65 @@ rgba(20,61,42,.35)
   letter-spacing: 0.3px;
 
   text-transform: uppercase;
+
 }
 
-/* =====================
-   TITLE
-===================== */
+
+/* ======================================================
+   TITULO CARD
+   ====================================================== */
 
 .blog-content h3 {
+
   font-size: 1.35rem;
 
   line-height: 1.3;
 
-  color: var(--color-brand-dark);
-   transition: color 0.25s ease;
+  color:
+    var(--color-brand-dark);
+
+  transition:
+    color 0.25s ease;
+
 }
 
 
 .blog-card:hover h3 {
-  color: var(--color-accent);
+
+  color:
+    var(--color-accent);
+
 }
-/* =====================
-   TEXT
-===================== */
+
+
+/* ======================================================
+   TEXTO CARD
+   ====================================================== */
 
 .blog-content p {
+
   font-size: 0.96rem;
 
   line-height: 1.7;
 
-  color: var(--color-text-soft);
+  color:
+    var(--color-text-soft);
+
 }
 
-/* =====================
-   LINK
-===================== */
+
+/* ======================================================
+   READ MORE
+   ====================================================== */
 
 .read-more {
+
   width: fit-content;
 
   margin-top: 10px;
 
-  color: var(--color-accent);
+  color:
+    var(--color-accent);
 
   font-weight: 700;
 
@@ -287,226 +431,895 @@ rgba(20,61,42,.35)
   transition:
     color 0.25s ease,
     transform 0.25s ease;
+
 }
+
 
 .read-more:hover {
-  color: var(--color-accent-light);
 
-  transform: translateX(4px);
+  color:
+    var(--color-accent-light);
+
+  transform:
+    translateX(4px);
+
 }
 
-/* =====================
-   HERO POST (DINÁMICO)
-===================== */
+
+/* ======================================================
+   HERO POST DINÁMICO
+   ====================================================== */
 
 .post-hero {
+
   position: relative;
-  padding: 160px 0;
+
+  min-height: 520px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 100px 20px;
 
   background-size: cover;
-  background-position: center;
+
+  background-position:
+    center 35%;
+
+  background-repeat: no-repeat;
 
   color: white;
+
   text-align: center;
+
+  overflow: hidden;
+
 }
 
+
 .post-hero::before {
+
   content: "";
+
   position: absolute;
+
   inset: 0;
 
   background:
     linear-gradient(
-      rgba(20, 61, 42, 0.35),
-      rgba(20, 61, 42, 0.15)
+      rgba(20, 61, 42, 0.48),
+      rgba(20, 61, 42, 0.22)
     );
 
   z-index: 1;
+
 }
+
 
 .post-hero .container {
+
   position: relative;
+
   z-index: 2;
+
+  width: min(900px, 100%);
+
+  margin: auto;
+
 }
 
-/* LABEL */
 
-.hero-label {
+/* ======================================================
+   LABEL POST
+   ====================================================== */
+
+.post-hero .hero-label {
+
   display: inline-block;
 
   font-size: 0.75rem;
+
   font-weight: 700;
 
   letter-spacing: 1px;
+
   text-transform: uppercase;
 
-  background: rgba(201, 106, 27, 0.15);
-  border: 1px solid rgba(201, 106, 27, 0.3);
+  background:
+    rgba(201, 106, 27, 0.15);
+
+  border:
+    1px solid rgba(201, 106, 27, 0.30);
 
   padding: 6px 14px;
+
   border-radius: 999px;
 
   margin-bottom: 16px;
+
 }
 
-/* AUTOR */
+
+/* ======================================================
+   AUTOR
+   ====================================================== */
 
 .post-author {
+
   margin-top: 20px;
 
   display: flex;
+
   justify-content: center;
+
   align-items: center;
+
   gap: 12px;
+
 }
 
+
 .author-avatar {
+
   width: 42px;
+
   height: 42px;
 
+  flex: 0 0 42px;
+
   border-radius: 50%;
-  background: var(--color-accent);
+
+  background:
+    var(--color-accent);
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   font-weight: bold;
+
   color: white;
+
 }
+
 
 .post-author span {
+
   display: block;
+
   font-size: 0.85rem;
+
   opacity: 0.85;
+
 }
 
-/* =====================
-   CONTENIDO
-===================== */
+
+/* ======================================================
+   CONTENEDOR DEL POST
+   ====================================================== */
 
 .post-container {
-  max-width: 820px;
+
+  width: min(100% - 40px, 820px);
+
   margin: auto;
+
 }
+
+
+/* ======================================================
+   CONTENIDO DEL POST
+   ====================================================== */
 
 .post-content {
+
   margin-top: -80px;
 
-  background: white;
+  position: relative;
+
+  z-index: 3;
+
+  background:
+    var(--color-surface);
+
   padding: 45px;
 
-  border-radius: var(--radius-lg);
+  border-radius:
+    var(--radius-lg);
 
-  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+  box-shadow:
+    0 25px 60px
+    rgba(0, 0, 0, 0.08);
+
 }
 
-/* TEXTO */
+
+/* ======================================================
+   TEXTO
+   ====================================================== */
 
 .post-content p {
+
   margin-bottom: 22px;
+
   line-height: 1.9;
+
   font-size: 1.05rem;
+
+  color:
+    var(--color-text);
+
 }
 
-/* TITULOS */
+
+/* ======================================================
+   TITULOS
+   ====================================================== */
 
 .post-content h2 {
-  margin: 35px 0 15px;
+
+  margin:
+    35px 0 15px;
+
   font-size: 1.7rem;
+
+  line-height: 1.25;
+
+  color:
+    var(--color-brand-dark);
+
 }
+
 
 .post-content h3 {
-  margin: 25px 0 10px;
+
+  margin:
+    25px 0 10px;
+
   font-size: 1.3rem;
+
+  line-height: 1.3;
+
+  color:
+    var(--color-brand-dark);
+
 }
 
-/* LISTAS */
+
+/* ======================================================
+   LISTAS
+   ====================================================== */
 
 .post-content ul {
+
   margin: 20px 0;
+
   padding-left: 20px;
+
 }
+
 
 .post-content li {
+
   margin-bottom: 8px;
+
+  line-height: 1.7;
+
 }
 
-/* BOTÓN */
+
+/* ======================================================
+   BOTON
+   ====================================================== */
 
 .post-content .btn {
+
   margin-top: 40px;
+
 }
-/* =====================
+
+
+/* ======================================================
+   EMPTY STATE
+   ====================================================== */
+
+.empty-state {
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  color:
+    var(--color-text-soft);
+
+  opacity: 0.8;
+
+}
+
+
+.empty-state h3 {
+
+  margin-bottom: 10px;
+
+  font-size: 1.4rem;
+
+  color:
+    var(--color-brand-dark);
+
+}
+
+
+/* ======================================================
    ANIMATIONS
-===================== */
+   ====================================================== */
 
 @keyframes fadeUp {
 
   from {
+
     opacity: 0;
-    transform: translateY(18px);
+
+    transform:
+      translateY(18px);
+
   }
 
   to {
+
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
+
   }
 
 }
 
-/* =====================
-   RESPONSIVE
-===================== */
+
+/* ======================================================
+   TABLET
+   ====================================================== */
 
 @media (max-width: 992px) {
 
   .blog-grid {
+
     grid-template-columns: 1fr;
+
+    gap: 28px;
+
+  }
+
+
+  .hero-blog {
+
+    min-height: 480px;
+
+    background-position:
+      center 35%;
+
+  }
+
+
+  .post-hero {
+
+    min-height: 480px;
+
+    background-position:
+      center 35%;
+
   }
 
 }
+
+
+/* ======================================================
+   TABLET PEQUEÑA
+   ====================================================== */
 
 @media (max-width: 768px) {
 
+  /* ---------- HERO BLOG ---------- */
+
   .hero-blog {
-    padding: 120px 0;
+
+    min-height: 450px;
+
+    padding: 90px 20px;
+
+    background-position:
+      center 32%;
+
   }
+
 
   .hero-blog h2 {
+
     font-size: 2.4rem;
+
+    letter-spacing: -1px;
+
   }
+
 
   .hero-blog p {
+
     font-size: 1rem;
+
+    line-height: 1.6;
+
   }
+
+
+  /* ---------- BLOG ---------- */
 
   .blog {
+
     padding: 80px 0;
+
   }
+
 
   .blog h2 {
+
     font-size: 2rem;
+
+    margin-bottom: 40px;
+
+    padding:
+      0 20px;
+
   }
+
+
+  .blog-grid {
+
+    width:
+      calc(100% - 32px);
+
+    margin: auto;
+
+    gap: 24px;
+
+  }
+
+
+  /* ---------- CARD ---------- */
 
   .blog-card img {
-    height: 220px;
+
+    aspect-ratio:
+      16 / 9;
+
   }
+
+
+  .blog-content {
+
+    padding: 21px;
+
+    gap: 12px;
+
+  }
+
+
+  .blog-content h3 {
+
+    font-size: 1.25rem;
+
+  }
+
+
+  .blog-content p {
+
+    font-size: 0.93rem;
+
+  }
+
+
+  /* ---------- POST HERO ---------- */
+
+  .post-hero {
+
+    min-height: 450px;
+
+    padding: 90px 20px;
+
+    background-position:
+      center 32%;
+
+  }
+
+
+  /* ---------- POST CONTENT ---------- */
+
+  .post-container {
+
+    width:
+      calc(100% - 28px);
+
+  }
+
 
   .post-content {
-    padding: 24px;
+
+    margin-top: -55px;
+
+    padding: 28px 22px;
+
+    border-radius:
+      var(--radius-md);
+
+  }
+
+
+  .post-content p {
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+  }
+
+
+  .post-content h2 {
+
+    font-size: 1.5rem;
+
+    margin-top: 30px;
+
+  }
+
+
+  .post-content h3 {
+
+    font-size: 1.2rem;
+
   }
 
 }
 
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--color-text-soft);
-  opacity: 0.8;
+
+/* ======================================================
+   MOVIL
+   ====================================================== */
+
+@media (max-width: 520px) {
+
+  /* ---------- HERO ---------- */
+
+  .hero-blog {
+
+    min-height: 420px;
+
+    padding: 80px 18px;
+
+    background-position:
+      center 30%;
+
+  }
+
+
+  .hero-blog h2 {
+
+    font-size: 2rem;
+
+    line-height: 1.08;
+
+  }
+
+
+  .hero-blog p {
+
+    font-size: 0.94rem;
+
+    line-height: 1.55;
+
+    max-width: 95%;
+
+  }
+
+
+  .hero-label {
+
+    font-size: 0.68rem;
+
+    padding: 5px 10px;
+
+    margin-bottom: 12px;
+
+  }
+
+
+  /* ---------- BLOG ---------- */
+
+  .blog {
+
+    padding: 65px 0;
+
+  }
+
+
+  .blog h2 {
+
+    font-size: 1.75rem;
+
+    margin-bottom: 32px;
+
+  }
+
+
+  .blog-grid {
+
+    width:
+      calc(100% - 24px);
+
+    gap: 20px;
+
+  }
+
+
+  /* ---------- CARDS ---------- */
+
+  .blog-card {
+
+    border-radius:
+      var(--radius-md);
+
+  }
+
+
+  .blog-card img {
+
+    aspect-ratio:
+      16 / 9;
+
+  }
+
+
+  .blog-content {
+
+    padding: 19px;
+
+  }
+
+
+  .blog-tag {
+
+    font-size: 0.68rem;
+
+    padding: 5px 9px;
+
+  }
+
+
+  .blog-content h3 {
+
+    font-size: 1.15rem;
+
+    line-height: 1.3;
+
+  }
+
+
+  .blog-content p {
+
+    font-size: 0.9rem;
+
+    line-height: 1.65;
+
+  }
+
+
+  .read-more {
+
+    margin-top: 6px;
+
+    font-size: 0.9rem;
+
+  }
+
+
+  /* ---------- POST HERO ---------- */
+
+  .post-hero {
+
+    min-height: 420px;
+
+    padding: 80px 18px;
+
+    background-position:
+      center 30%;
+
+  }
+
+
+  .post-hero .hero-label {
+
+    font-size: 0.68rem;
+
+    padding: 5px 10px;
+
+  }
+
+
+  /* ---------- AUTOR ---------- */
+
+  .post-author {
+
+    margin-top: 16px;
+
+    gap: 9px;
+
+  }
+
+
+  .author-avatar {
+
+    width: 38px;
+
+    height: 38px;
+
+    flex-basis: 38px;
+
+    font-size: 0.85rem;
+
+  }
+
+
+  .post-author span {
+
+    font-size: 0.78rem;
+
+  }
+
+
+  /* ---------- POST ---------- */
+
+  .post-container {
+
+    width:
+      calc(100% - 20px);
+
+  }
+
+
+  .post-content {
+
+    margin-top: -40px;
+
+    padding: 24px 18px;
+
+    border-radius:
+      var(--radius-md);
+
+  }
+
+
+  .post-content p {
+
+    font-size: 0.96rem;
+
+    line-height: 1.75;
+
+    margin-bottom: 19px;
+
+  }
+
+
+  .post-content h2 {
+
+    font-size: 1.35rem;
+
+    margin:
+      27px 0 12px;
+
+  }
+
+
+  .post-content h3 {
+
+    font-size: 1.15rem;
+
+    margin:
+      22px 0 9px;
+
+  }
+
+
+  .post-content ul {
+
+    padding-left: 18px;
+
+  }
+
+
+  .post-content li {
+
+    font-size: 0.95rem;
+
+    line-height: 1.6;
+
+  }
+
+
+  .post-content .btn {
+
+    margin-top: 28px;
+
+    width: 100%;
+
+  }
+
 }
 
-.empty-state h3 {
-  margin-bottom: 10px;
-  font-size: 1.4rem;
+
+/* ======================================================
+   MOVILES MUY PEQUEÑOS
+   ====================================================== */
+
+@media (max-width: 380px) {
+
+  .hero-blog {
+
+    min-height: 390px;
+
+    padding:
+      70px 15px;
+
+  }
+
+
+  .hero-blog h2 {
+
+    font-size: 1.8rem;
+
+  }
+
+
+  .hero-blog p {
+
+    font-size: 0.9rem;
+
+  }
+
+
+  .blog h2 {
+
+    font-size: 1.6rem;
+
+  }
+
+
+  .blog-grid {
+
+    width:
+      calc(100% - 18px);
+
+  }
+
+
+  .post-hero {
+
+    min-height: 390px;
+
+    padding:
+      70px 15px;
+
+  }
+
+
+  .post-content {
+
+    padding:
+      22px 16px;
+
+  }
+
 }
+
