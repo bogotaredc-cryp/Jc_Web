@@ -2,11 +2,25 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 // 🔥 TU CONFIG (desde Firebase console)
+
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
+
+  apiKey: "AIzaSyCRTKpuegv9jYwafwO_zSYjLRfPDB9Lgm4",
+
+  authDomain: "jose-cuesta-web.firebaseapp.com",
+
   projectId: "jose-cuesta-web",
+
+  storageBucket: "jose-cuesta-web.firebasestorage.app",
+
+  messagingSenderId: "503821106238",
+
+  appId: "1:503821106238:web:5a04ad771732b75e93656f",
+
+  measurementId: "G-86WV69YPDR"
+
 };
+
 
 // Init
 const app = initializeApp(firebaseConfig);
