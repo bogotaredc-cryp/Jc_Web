@@ -1,0 +1,345 @@
+/* =====================================================
+   SOCIAL FEED
+===================================================== */
+
+.social-feed {
+  padding: 90px 0;
+  background: var(--color-surface);
+}
+
+.social-feed-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 45px;
+}
+
+.social-feed-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(94, 139, 114, 0.12);
+  color: var(--color-brand);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.social-feed-header h2 {
+  margin-bottom: 10px;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+
+  color: var(--color-brand-dark);
+}
+
+.social-feed-header p {
+  color: var(--color-text-soft);
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.social-feed-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 28px;
+
+  align-items: start;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.social-feed-card {
+
+  background: var(--color-white);
+
+  border: 1px solid rgba(20, 61, 42, 0.08);
+
+  border-radius: var(--radius-lg);
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow-card);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.social-card-header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 22px 24px;
+
+  border-bottom: 1px solid rgba(20, 61, 42, 0.08);
+}
+
+.social-card-title {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+.social-card-title > i {
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--color-brand-dark);
+
+  color: var(--color-white);
+
+  font-size: 1.15rem;
+}
+
+.social-card-title h3 {
+
+  color: var(--color-brand-dark);
+
+  font-size: 1rem;
+
+  line-height: 1.2;
+
+  margin-bottom: 3px;
+}
+
+.social-card-title span {
+
+  color: var(--color-text-soft);
+
+  font-size: 0.78rem;
+}
+
+
+/* =========================
+   PROFILE BUTTON
+========================= */
+
+.social-follow {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 8px 14px;
+
+  border: 1px solid rgba(20, 61, 42, 0.15);
+
+  border-radius: 999px;
+
+  color: var(--color-brand-dark);
+
+  text-decoration: none;
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+
+  transition: 0.25s ease;
+}
+
+.social-follow:hover {
+
+  background: var(--color-brand-dark);
+
+  color: var(--color-white);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   X
+========================= */
+
+.x-feed {
+
+  padding: 10px;
+
+  min-height: 620px;
+
+  background: #fff;
+}
+
+.x-feed iframe {
+
+  width: 100% !important;
+}
+
+
+/* =========================
+   INSTAGRAM
+========================= */
+
+.instagram-feed {
+
+  min-height: 620px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px;
+}
+
+.instagram-placeholder {
+
+  max-width: 360px;
+
+  text-align: center;
+}
+
+.instagram-placeholder-icon {
+
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 22px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 22px;
+
+  background: var(--color-brand-dark);
+
+  color: white;
+
+  font-size: 2rem;
+}
+
+.instagram-placeholder h3 {
+
+  margin-bottom: 10px;
+
+  color: var(--color-brand-dark);
+
+  font-size: 1.3rem;
+}
+
+.instagram-placeholder p {
+
+  margin-bottom: 24px;
+
+  color: var(--color-text-soft);
+
+  font-size: 0.9rem;
+
+  line-height: 1.7;
+}
+
+.instagram-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 11px 18px;
+
+  border-radius: 999px;
+
+  background: var(--color-brand-dark);
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  transition: 0.25s ease;
+}
+
+.instagram-button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(20, 61, 42, 0.18);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+  .social-feed {
+    padding: 70px 0;
+  }
+
+  .social-feed-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .social-card-header {
+
+    padding: 18px;
+
+  }
+
+  .social-feed-header {
+
+    margin-bottom: 30px;
+
+  }
+
+  .x-feed {
+
+    padding: 5px;
+
+  }
+
+  .instagram-feed {
+
+    min-height: 500px;
+
+    padding: 30px 20px;
+
+  }
+
+}
