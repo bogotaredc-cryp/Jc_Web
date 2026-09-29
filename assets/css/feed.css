@@ -183,19 +183,23 @@
 ========================= */
 
 .x-feed {
+    padding: 25px 20px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
 
-  padding: 10px;
-
-  min-height: 620px;
-
-  background: #fff;
+.x-feed .twitter-tweet {
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 550px !important;
 }
 
 .x-feed iframe {
-
-  width: 100% !important;
+    width: 100% !important;
 }
-
 
 /* =========================
    INSTAGRAM
@@ -203,7 +207,7 @@
 
 .instagram-feed {
 
-  min-height: 620px;
+  min-height: auto;
 
   display: flex;
 
