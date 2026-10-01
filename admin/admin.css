@@ -1279,3 +1279,478 @@ select {
 
 }
 
+
+/* ======================================================
+   CLASIFICADOS DE NEGOCIOS
+   ====================================================== */
+
+.businesses-section {
+    margin-top: 40px;
+}
+
+
+/* ======================================================
+   ESTADÍSTICAS DE NEGOCIOS
+   ====================================================== */
+
+.business-stats {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+
+/* ======================================================
+   CONTENEDOR DE NEGOCIOS
+   ====================================================== */
+
+.businesses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+/* ======================================================
+   TARJETA DE NEGOCIO
+   ====================================================== */
+
+.business-admin-card {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 24px;
+
+    padding: 18px;
+
+    background: var(--color-white);
+
+    border:
+        1px solid rgba(20, 61, 42, 0.08);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-card);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.business-admin-card:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(94, 139, 114, 0.30);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* ======================================================
+   IMAGEN
+   ====================================================== */
+
+.business-admin-image {
+    width: 210px;
+    height: 175px;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-sm);
+
+    background: #EEE6D7;
+}
+
+.business-admin-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.business-admin-card:hover
+.business-admin-image img {
+    transform: scale(1.03);
+}
+
+
+/* ======================================================
+   CONTENIDO
+   ====================================================== */
+
+.business-admin-content {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ======================================================
+   CABECERA
+   ====================================================== */
+
+.business-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 15px;
+}
+
+.business-admin-header h3 {
+    margin: 8px 0 0;
+
+    color: var(--color-brand-dark);
+
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+/* ======================================================
+   ESTADOS
+   ====================================================== */
+
+.business-status {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    font-size: 0.70rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.business-status.pending {
+    background:
+        rgba(224, 161, 38, 0.13);
+
+    color: #966D08;
+}
+
+.business-status.approved {
+    background:
+        rgba(57, 181, 74, 0.12);
+
+    color: #287F35;
+}
+
+.business-status.rejected {
+    background:
+        rgba(201, 75, 75, 0.10);
+
+    color: var(--color-danger-soft);
+}
+
+
+/* ======================================================
+   CATEGORÍA
+   ====================================================== */
+
+.business-admin-category {
+    margin: 8px 0 12px;
+
+    color: var(--color-brand);
+
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   DESCRIPCIÓN
+   ====================================================== */
+
+.business-admin-description {
+    margin: 0 0 16px;
+
+    color: var(--color-text-soft);
+
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+
+/* ======================================================
+   INFORMACIÓN
+   ====================================================== */
+
+.business-admin-info {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px 20px;
+
+    padding: 14px 0;
+
+    border-top:
+        1px solid rgba(20, 61, 42, 0.07);
+
+    border-bottom:
+        1px solid rgba(20, 61, 42, 0.07);
+}
+
+.business-admin-info span {
+    color: var(--color-text-soft);
+
+    font-size: 0.77rem;
+    line-height: 1.5;
+}
+
+.business-admin-info strong {
+    color: var(--color-brand-dark);
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   ACCIONES
+   ====================================================== */
+
+.business-admin-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 16px;
+}
+
+.business-admin-actions button {
+    min-height: 40px;
+
+    padding: 9px 15px;
+
+    border-radius: var(--radius-sm);
+
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.business-admin-actions button:hover {
+    transform: translateY(-1px);
+}
+
+.business-admin-actions button:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ======================================================
+   APROBAR
+   ====================================================== */
+
+.business-admin-actions
+.primary-btn {
+    background: var(--color-brand-dark);
+
+    border:
+        1px solid var(--color-brand-dark);
+
+    color: var(--color-white);
+}
+
+.business-admin-actions
+.primary-btn:hover {
+    background: var(--color-brand);
+
+    border-color: var(--color-brand);
+
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* ======================================================
+   RECHAZAR / RETIRAR
+   ====================================================== */
+
+.business-admin-actions
+.secondary-btn {
+    background: transparent;
+
+    border:
+        1px solid rgba(20, 61, 42, 0.14);
+
+    color: var(--color-text);
+}
+
+.business-admin-actions
+.secondary-btn:hover {
+    background: #F7F0E3;
+
+    border-color:
+        rgba(20, 61, 42, 0.22);
+}
+
+
+/* ======================================================
+   ELIMINAR
+   ====================================================== */
+
+.business-admin-actions
+.danger-btn {
+    background:
+        rgba(201, 75, 75, 0.08);
+
+    border:
+        1px solid rgba(201, 75, 75, 0.14);
+
+    color: var(--color-danger-soft);
+}
+
+.business-admin-actions
+.danger-btn:hover {
+    background:
+        rgba(201, 75, 75, 0.15);
+
+    border-color:
+        rgba(201, 75, 75, 0.25);
+}
+
+
+/* ======================================================
+   ESTADO DE CARGA
+   ====================================================== */
+
+.businesses-container .loading {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    color: var(--color-text-soft);
+
+    background: var(--color-surface);
+
+    border:
+        1px dashed rgba(20, 61, 42, 0.15);
+
+    border-radius: var(--radius-md);
+
+    font-size: 0.9rem;
+}
+
+
+/* ======================================================
+   RESPONSIVE — TABLET
+   ====================================================== */
+
+@media (max-width: 850px) {
+
+    .business-stats {
+        gap: 14px;
+    }
+
+    .business-admin-card {
+        grid-template-columns:
+            170px minmax(0, 1fr);
+
+        gap: 18px;
+
+        padding: 16px;
+    }
+
+    .business-admin-image {
+        width: 170px;
+        height: 155px;
+    }
+
+    .business-admin-header h3 {
+        font-size: 1.15rem;
+    }
+}
+
+
+/* ======================================================
+   RESPONSIVE — MÓVIL
+   ====================================================== */
+
+@media (max-width: 700px) {
+
+    .business-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .business-admin-card {
+        grid-template-columns: 1fr;
+    }
+
+    .business-admin-image {
+        width: 100%;
+        height: 210px;
+    }
+
+    .business-admin-info {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .business-admin-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .business-admin-actions button {
+        width: 100%;
+    }
+}
+
+
+/* ======================================================
+   RESPONSIVE — MÓVIL PEQUEÑO
+   ====================================================== */
+
+@media (max-width: 450px) {
+
+    .businesses-section {
+        margin-top: 30px;
+    }
+
+    .business-admin-card {
+        padding: 14px;
+
+        border-radius: var(--radius-sm);
+    }
+
+    .business-admin-image {
+        height: 180px;
+    }
+
+    .business-admin-header h3 {
+        font-size: 1.05rem;
+    }
+
+    .business-admin-description {
+        font-size: 0.84rem;
+    }
+}

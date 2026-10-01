@@ -29,17 +29,14 @@
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 
     <!-- OPEN GRAPH -->
-    <meta property="og:title"
-        content="Blog y Comunicados | José Cuesta Novoa">
+    <meta property="og:title" content="Blog y Comunicados | José Cuesta Novoa">
 
     <meta property="og:description"
         content="Conoce noticias, comunicados y actividades relacionadas con el trabajo de José Cuesta Novoa en Bogotá.">
 
-    <meta property="og:image"
-        content="https://josecuestanovoa.com/assets/img/preview.jpg">
+    <meta property="og:image" content="https://josecuestanovoa.com/assets/img/preview.jpg">
 
-    <meta property="og:url"
-        content="https://josecuestanovoa.com/pages/blog.html">
+    <meta property="og:url" content="https://josecuestanovoa.com/pages/blog.html">
 
     <meta property="og:type" content="website">
 
@@ -48,14 +45,12 @@
     <!-- TWITTER / X -->
     <meta name="twitter:card" content="summary_large_image">
 
-    <meta name="twitter:title"
-        content="Blog y Comunicados | José Cuesta Novoa">
+    <meta name="twitter:title" content="Blog y Comunicados | José Cuesta Novoa">
 
     <meta name="twitter:description"
         content="Noticias, actividades y comunicados sobre ambiente, participación ciudadana y Bogotá.">
 
-    <meta name="twitter:image"
-        content="https://josecuestanovoa.com/assets/img/preview.jpg">
+    <meta name="twitter:image" content="https://josecuestanovoa.com/assets/img/preview.jpg">
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,8 +61,7 @@
         rel="stylesheet">
 
     <!-- FONT AWESOME -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/styles.css">
@@ -79,27 +73,27 @@
 
 <body>
     <header>
-  <div class="container">
+        <div class="container">
 
-    <div class="brand">
-      <img src="/assets/img/Logo.png" alt="Logo" class="logo">
-      <h1>Jose Cuesta Novoa</h1>
-    </div>
+            <div class="brand">
+                <img src="/assets/img/Logo.png" alt="Logo" class="logo">
+                <h1>Jose Cuesta Novoa</h1>
+            </div>
 
-    <div class="menu-toggle" id="menuToggle">
-      <i class="fa-solid fa-bars"></i>
-    </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
 
-    <nav id="navMenu">
-      <a href="/index.html">Inicio</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="propuestas.html">Propuestas</a>
-      <a href="blog.html">Blog</a>
-      <a href="participacion.html">Participación</a>
-    </nav>
+            <nav id="navMenu">
+                <a href="/index.html">Inicio</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="propuestas.html">Propuestas</a>
+                <a href="blog.html">Blog</a>
+                <a href="participacion.html">Participación</a>
+            </nav>
 
-  </div>
-</header>
+        </div>
+    </header>
     <main>
 
         <!-- HERO -->
@@ -112,11 +106,250 @@
                 </p>
         </section>
 
-        <!-- POSTS -->
-        <!-- POSTS PRO -->
+
+        <section class="clasificados">
+
+            <div class="container">
+
+                <h2>Clasificados de negocios</h2>
+
+                <p class="clasificados-intro">
+                    Conoce negocios y emprendimientos de nuestra comunidad.
+                </p>
+
+                <!-- ==============================
+             VERIFICACIÓN
+        =============================== -->
+
+                <div class="clasificados-verificacion">
+
+                    <h3>¿Quieres publicar tu negocio?</h3>
+
+                    <p>
+                        Verifica que haces parte de nuestra comunidad
+                        para registrar tu negocio.
+                    </p>
+
+                    <div class="verificacion-form">
+
+                        <input type="text" id="documento-verificacion" placeholder="Número de documento"
+                            autocomplete="off">
+
+                        <button type="button" id="verificar-registro">
+                            Verificar registro
+                        </button>
+
+                    </div>
+
+                    <div id="verification-message" class="verification-message" aria-live="polite"></div>
+
+                </div>
+
+
+                <!-- ==============================
+             FORMULARIO DEL NEGOCIO
+             Oculto hasta verificar
+        =============================== -->
+                <!-- ==============================
+     FORMULARIO DEL NEGOCIO
+============================== -->
+
+                <div id="business-form-container" class="business-form-container" hidden>
+
+                    <h3>Registrar mi negocio</h3>
+
+                    <p>
+                        Completa los datos de tu negocio para enviarlo
+                        a revisión.
+                    </p>
+
+                    <form id="business-form">
+
+                        <!-- NOMBRE -->
+                        <div class="form-group">
+
+                            <label for="business-name">
+                                Nombre del negocio
+                            </label>
+
+                            <input type="text" id="business-name" name="name" placeholder="Ej. Café Bogotá" required>
+
+                        </div>
+
+
+                        <!-- CATEGORÍA -->
+                        <div class="form-group">
+
+                            <label for="business-category">
+                                Categoría
+                            </label>
+
+                            <select id="business-category" name="category" required>
+
+                                <option value="">
+                                    Selecciona una categoría
+                                </option>
+
+                                <option value="Alimentos y bebidas">
+                                    Alimentos y bebidas
+                                </option>
+
+                                <option value="Belleza y cuidado personal">
+                                    Belleza y cuidado personal
+                                </option>
+
+                                <option value="Comercio">
+                                    Comercio
+                                </option>
+
+                                <option value="Servicios">
+                                    Servicios
+                                </option>
+
+                                <option value="Tecnología">
+                                    Tecnología
+                                </option>
+
+                                <option value="Educación">
+                                    Educación
+                                </option>
+
+                                <option value="Salud">
+                                    Salud
+                                </option>
+
+                                <option value="Artes y cultura">
+                                    Artes y cultura
+                                </option>
+
+                                <option value="Independientes y freelancers">
+                                    Independientes y freelancers
+                                </option>
+
+                                <option value="Otros">
+                                    Otros
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- DESCRIPCIÓN -->
+                        <div class="form-group">
+
+                            <label for="business-description">
+                                Descripción
+                            </label>
+
+                            <textarea id="business-description" name="description" rows="5" maxlength="500"
+                                placeholder="Cuéntanos brevemente qué ofrece tu negocio..." required></textarea>
+
+                        </div>
+
+
+                        <!-- CIUDAD -->
+                        <div class="form-group">
+
+                            <label for="business-city">
+                                Ciudad
+                            </label>
+
+                            <input type="text" id="business-city" name="city" placeholder="Ej. Bogotá" required>
+
+                        </div>
+
+
+                        <!-- WHATSAPP -->
+                        <div class="form-group">
+
+                            <label for="business-whatsapp">
+                                WhatsApp
+                            </label>
+
+                            <input type="tel" id="business-whatsapp" name="whatsapp" placeholder="Ej. 573001234567"
+                                required>
+
+                            <small>
+                                Incluye el código de país. Ejemplo: 573001234567
+                            </small>
+
+                        </div>
+
+
+                        <!-- INSTAGRAM -->
+                        <div class="form-group">
+
+                            <label for="business-instagram">
+                                Instagram
+                            </label>
+
+                            <input type="text" id="business-instagram" name="instagram" placeholder="@tunegocio">
+
+                        </div>
+
+
+                        <!-- SITIO WEB -->
+                        <div class="form-group">
+
+                            <label for="business-website">
+                                Sitio web
+                                <span>(opcional)</span>
+                            </label>
+
+                            <input type="url" id="business-website" name="website" placeholder="https://tunegocio.com">
+
+                        </div>
+
+
+                        <!-- IMAGEN -->
+                        <div class="form-group">
+
+                            <label for="business-image">
+                                Imagen o logo
+                            </label>
+
+                            <input type="url" id="business-image" name="image" placeholder="URL de la imagen" required>
+
+                            <small>
+                                Por ahora utilizaremos una URL de imagen.
+                            </small>
+
+                        </div>
+
+
+                        <!-- MENSAJE -->
+                        <div id="business-form-message" class="business-form-message" aria-live="polite"></div>
+
+
+                        <!-- BOTÓN -->
+                        <button type="submit" class="business-submit-btn" id="business-submit-btn">
+                            Enviar negocio a revisión
+                        </button>
+
+                    </form>
+
+                </div>
+                
+
+
+
+                <!-- ==============================
+             NEGOCIOS PUBLICADOS
+        =============================== -->
+
+                <div class="clasificados-grid" id="business-container">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
         <section class="blog">
             <div class="container">
-                <h2>Últimas publicaciones</h2>
+                <h2>Columnas de opinión</h2>
 
                 <div class="blog-grid" id="blog-container">
 
@@ -125,8 +358,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- CTA -->
         <section class="cta">
             <div class="container">
                 <h2>Mantente informado</h2>
@@ -135,7 +366,6 @@
                 </p>
             </div>
         </section>
-
     </main>
     <footer class="footer">
         <div class="container footer-grid">
@@ -155,7 +385,7 @@
                 <a href="/index.html">Inicio</a>
                 <a href="sobre.html">Sobre mí</a>
                 <a href="propuestas.html">Propuestas</a>
-               <!-- <a href="blog.html">Blog</a> -->
+                <!-- <a href="blog.html">Blog</a> -->
                 <a href="participacion.html">Participación</a>
             </div>
 
@@ -180,12 +410,12 @@
             <p>© 2026 José Cuesta Novoa </p>
         </div>
     </footer>
-     <a href="https://wa.me/573102286012" class="whatsapp-float" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
+    <a href="https://wa.me/573102286012" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <script type="module" src="/assets/js/clasificados.js"></script>
     <script type="module" src="/assets/js/blog.js"></script>
-     <script src="/assets/js/menu.js"></script>
+    <script src="/assets/js/menu.js"></script>
 </body>
 
 </html>

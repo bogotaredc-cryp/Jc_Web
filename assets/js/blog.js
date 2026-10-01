@@ -1,32 +1,18 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// 🔥 TU CONFIG (desde Firebase console)
+// ==========================================
+// BLOG
+// ==========================================
 
-const firebaseConfig = {
+import {
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  apiKey: "AIzaSyCRTKpuegv9jYwafwO_zSYjLRfPDB9Lgm4",
-
-  authDomain: "jose-cuesta-web.firebaseapp.com",
-
-  projectId: "jose-cuesta-web",
-
-  storageBucket: "jose-cuesta-web.firebasestorage.app",
-
-  messagingSenderId: "503821106238",
-
-  appId: "1:503821106238:web:5a04ad771732b75e93656f",
-
-  measurementId: "G-86WV69YPDR"
-
-};
+import {
+    db
+} from "./firebase.js";
 
 
-// Init
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Contenedor
 const container = document.getElementById("blog-container");
 function resumirTexto(texto, limite = 120) {
   if (!texto) return "";
