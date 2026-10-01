@@ -1,0 +1,802 @@
+
+/* ======================================================
+   CLASIFICADOS DE NEGOCIOS
+   ====================================================== */
+
+.clasificados {
+    padding: 100px 0;
+    background: #f8f5ee;
+}
+
+.clasificados h2 {
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 2.5rem;
+    line-height: 1.15;
+    color: var(--color-brand-dark);
+    letter-spacing: -1px;
+}
+
+.clasificados-intro {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-soft);
+}
+
+
+/* ======================================================
+   VERIFICACIÓN
+   ====================================================== */
+
+.clasificados-verificacion {
+    max-width: 680px;
+    margin: 0 auto 55px;
+    padding: 30px;
+    background: var(--color-surface);
+    border: 1px solid rgba(20, 61, 42, 0.08);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+}
+
+.clasificados-verificacion h3 {
+    margin: 0 0 9px;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    color: var(--color-brand-dark);
+}
+
+.clasificados-verificacion > p {
+    max-width: 520px;
+    margin: 0 auto 22px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--color-text-soft);
+}
+
+
+/* ======================================================
+   FORMULARIO DE VERIFICACIÓN
+   ====================================================== */
+
+.verificacion-form {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.verificacion-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 15px;
+    border: 1px solid rgba(20, 61, 42, 0.15);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--color-brand-dark);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.verificacion-form input::placeholder {
+    color: #999;
+}
+
+.verificacion-form input:focus {
+    border-color: var(--color-brand-dark);
+    box-shadow:
+        0 0 0 3px rgba(20, 61, 42, 0.08);
+}
+
+
+/* ======================================================
+   BOTÓN VERIFICAR
+   ====================================================== */
+
+#verificar-registro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--color-brand-dark);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        background 0.25s ease;
+}
+
+#verificar-registro:hover {
+    background: #1d533a;
+    transform: translateY(-2px);
+}
+
+#verificar-registro:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ======================================================
+   MENSAJE DE VERIFICACIÓN
+   ====================================================== */
+
+.verification-message {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.verification-message:empty {
+    display: none;
+}
+
+.verification-message.success {
+    color: #21613c;
+}
+
+.verification-message.error {
+    color: #a33a3a;
+}
+
+.verification-message.warning {
+    color: #8a641c;
+}
+
+
+/* ======================================================
+   BOTÓN PARA REGISTRARSE
+   ====================================================== */
+
+.btn-registro {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px 17px;
+    border-radius: 8px;
+    background: var(--color-brand-dark);
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.btn-registro:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* ======================================================
+   FORMULARIO DEL NEGOCIO
+   ====================================================== */
+
+.business-form-container {
+    max-width: 800px;
+    margin: 0 auto 55px;
+    padding: 30px;
+    background: var(--color-surface);
+    border: 1px solid rgba(20, 61, 42, 0.08);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.business-form-container h3 {
+    margin: 0 0 8px;
+    color: var(--color-brand-dark);
+    font-size: 1.4rem;
+}
+
+.business-form-container p {
+    margin: 0;
+    color: var(--color-text-soft);
+    line-height: 1.6;
+}
+
+
+/* ======================================================
+   GRID
+   ====================================================== */
+
+.clasificados-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+
+/* ======================================================
+   TARJETA DE NEGOCIO
+   ====================================================== */
+
+.negocio-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid rgba(20, 61, 42, 0.08);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.negocio-card:hover {
+    transform: translateY(-7px);
+    box-shadow:
+        0 20px 45px rgba(20, 61, 42, 0.14);
+    border-color:
+        rgba(201, 106, 27, 0.20);
+}
+
+
+/* ======================================================
+   IMAGEN
+   ====================================================== */
+
+.negocio-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #e9ddc7;
+    display: block;
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.negocio-card:hover .negocio-image {
+    transform: scale(1.04);
+    filter:
+        contrast(1.04)
+        saturate(1.04);
+}
+
+
+/* ======================================================
+   CONTENIDO
+   ====================================================== */
+
+.negocio-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+
+/* ======================================================
+   CATEGORÍA
+   ====================================================== */
+
+.negocio-category {
+    width: fit-content;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background:
+        rgba(201, 106, 27, 0.12);
+    color:
+        var(--color-accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+
+/* ======================================================
+   NOMBRE
+   ====================================================== */
+
+.negocio-content h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ======================================================
+   DESCRIPCIÓN
+   ====================================================== */
+
+.negocio-description {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color:
+        var(--color-text-soft);
+}
+
+
+/* ======================================================
+   INFORMACIÓN
+   ====================================================== */
+
+.negocio-info {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 3px;
+    font-size: 0.86rem;
+    color:
+        var(--color-text-soft);
+}
+
+.negocio-info span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.negocio-info i {
+    width: 16px;
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ======================================================
+   BOTONES
+   ====================================================== */
+
+.negocio-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+.negocio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        background 0.25s ease;
+}
+
+.negocio-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* Botón principal */
+
+.negocio-btn-primary {
+    background:
+        var(--color-brand-dark);
+    color: white;
+}
+
+
+/* Botón secundario */
+
+.negocio-btn-secondary {
+    background:
+        rgba(20, 61, 42, 0.08);
+    color:
+        var(--color-brand-dark);
+}
+
+
+/* ======================================================
+   DESTACADO
+   ====================================================== */
+
+.negocio-card.featured {
+    border-color:
+        rgba(201, 106, 27, 0.28);
+}
+
+.negocio-card.featured::before {
+    content: "Destacado";
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background:
+        var(--color-accent);
+    color: white;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 992px) {
+
+    .clasificados-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+
+/* ======================================================
+   TABLET PEQUEÑA
+   ====================================================== */
+
+@media (max-width: 768px) {
+
+    .clasificados {
+        padding: 80px 0;
+    }
+
+    .clasificados h2 {
+        font-size: 2rem;
+    }
+
+    .clasificados-intro {
+        padding: 0 20px;
+        margin-bottom: 40px;
+    }
+
+    .clasificados-verificacion {
+        width: calc(100% - 40px);
+        box-sizing: border-box;
+        margin-bottom: 40px;
+        padding: 25px 20px;
+    }
+
+    .verificacion-form {
+        flex-direction: column;
+    }
+
+    .verificacion-form input,
+    #verificar-registro {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .business-form-container {
+        width: calc(100% - 40px);
+        box-sizing: border-box;
+        padding: 25px 20px;
+    }
+
+    .clasificados-grid {
+        width: calc(100% - 32px);
+        margin: auto;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .negocio-content {
+        padding: 21px;
+    }
+}
+
+
+/* ======================================================
+   MOVIL
+   ====================================================== */
+
+@media (max-width: 520px) {
+
+    .clasificados {
+        padding: 65px 0;
+    }
+
+    .clasificados h2 {
+        font-size: 1.75rem;
+    }
+
+    .clasificados-intro {
+        font-size: 0.92rem;
+        margin-bottom: 32px;
+    }
+
+    .clasificados-verificacion {
+        width: calc(100% - 24px);
+        padding: 22px 17px;
+    }
+
+    .clasificados-grid {
+        width: calc(100% - 24px);
+        gap: 20px;
+    }
+
+    .negocio-card {
+        border-radius: var(--radius-md);
+    }
+
+    .negocio-content {
+        padding: 19px;
+    }
+
+    .negocio-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .negocio-description {
+        font-size: 0.9rem;
+    }
+
+    .negocio-actions {
+        flex-direction: column;
+    }
+
+    .negocio-btn {
+        width: 100%;
+    }
+}
+
+
+
+/* ======================================================
+   FORMULARIO DE REGISTRO DE NEGOCIO
+   ====================================================== */
+
+.business-form-container {
+  max-width: 850px;
+  margin: 50px auto 70px;
+  padding: 38px;
+  background: var(--color-surface);
+  border: 1px solid rgba(20, 61, 42, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.business-form-container h3 {
+  margin: 0 0 10px;
+  font-size: 1.7rem;
+  line-height: 1.3;
+  color: var(--color-brand-dark);
+}
+
+.business-form-container > p {
+  margin: 0 0 30px;
+  color: var(--color-text-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* ======================================================
+   FORMULARIO
+   ====================================================== */
+
+#business-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-brand-dark);
+}
+
+.form-group label span {
+  font-weight: 400;
+  color: var(--color-text-soft);
+}
+
+
+/* ======================================================
+   INPUTS
+   ====================================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid rgba(20, 61, 42, 0.15);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--color-brand-dark);
+  font-family: inherit;
+  font-size: 0.92rem;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* ======================================================
+   FOCUS
+   ====================================================== */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--color-brand-dark);
+  box-shadow:
+    0 0 0 3px rgba(20, 61, 42, 0.08);
+  background: #fff;
+}
+
+
+/* ======================================================
+   TEXTAREA
+   ====================================================== */
+
+.form-group textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+
+/* ======================================================
+   PLACEHOLDER
+   ====================================================== */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9a9a9a;
+}
+
+
+/* ======================================================
+   AYUDA
+   ====================================================== */
+
+.form-group small {
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+}
+
+
+/* ======================================================
+   MENSAJE DEL FORMULARIO
+   ====================================================== */
+
+.business-form-message {
+  display: none;
+  padding: 13px 15px;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.business-form-message.success {
+  display: block;
+  background: rgba(20, 61, 42, 0.08);
+  color: var(--color-brand-dark);
+}
+
+.business-form-message.error {
+  display: block;
+  background: rgba(180, 40, 40, 0.08);
+  color: #a52d2d;
+}
+
+
+/* ======================================================
+   BOTÓN ENVIAR
+   ====================================================== */
+
+.business-submit-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 9px;
+  background: var(--color-brand-dark);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.business-submit-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+  box-shadow:
+    0 10px 25px rgba(20, 61, 42, 0.16);
+}
+
+.business-submit-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 768px) {
+
+  .business-form-container {
+    width: calc(100% - 32px);
+    margin: 40px auto 55px;
+    padding: 28px 22px;
+  }
+
+  .business-form-container h3 {
+    font-size: 1.45rem;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .business-form-container {
+    width: calc(100% - 24px);
+    padding: 24px 18px;
+    border-radius: var(--radius-md);
+  }
+
+  .business-form-container h3 {
+    font-size: 1.3rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 13px;
+    font-size: 0.88rem;
+  }
+
+  .business-submit-btn {
+    padding: 13px 16px;
+  }
+
+}
+
