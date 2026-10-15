@@ -303,20 +303,25 @@
                         </div>
 
 
-                        <!-- IMAGEN -->
+
                         <div class="form-group">
+                            <label for="business-image">Imagen o logo del negocio</label>
 
-                            <label for="business-image">
-                                Imagen o logo
-                            </label>
+                            <input type="file" id="business-image" name="image" accept="image/jpeg,image/png,image/webp"
+                                required>
 
-                            <input type="url" id="business-image" name="image" placeholder="URL de la imagen" required>
+                            <small>JPG, PNG o WebP. Máximo 5 MB.</small>
 
-                            <small>
-                                Por ahora utilizaremos una URL de imagen.
-                            </small>
+                            <div id="business-image-preview-container" hidden>
+                                <img id="business-image-preview" alt="Vista previa del negocio"
+                                    style="display:block;max-width:100%;max-height:260px;object-fit:contain;margin-top:12px;border-radius:12px;">
 
+                                <button type="button" id="business-image-remove">
+                                    Quitar imagen
+                                </button>
+                            </div>
                         </div>
+
 
 
                         <!-- MENSAJE -->
@@ -331,7 +336,7 @@
                     </form>
 
                 </div>
-                
+
 
 
 
@@ -408,7 +413,8 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© 2026 José Cuesta Novoa </p>
+            <p>© 2026 José Cuesta Novoa</p>
+            <p>Developing By Santvent</p>
         </div>
     </footer>
     <a href="https://wa.me/573102286012" class="whatsapp-float" target="_blank">

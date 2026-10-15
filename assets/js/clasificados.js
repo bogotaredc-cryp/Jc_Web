@@ -61,6 +61,64 @@ const businessContainer =
     document.getElementById("business-container");
 
 
+const businessImageInput =
+    document.getElementById("business-image");
+
+const imagePreviewContainer =
+    document.getElementById("business-image-preview-container");
+
+const imagePreview =
+    document.getElementById("business-image-preview");
+
+const removeImageBtn =
+    document.getElementById("business-image-remove");
+
+let previewURL = null;
+
+businessImageInput?.addEventListener("change", () => {
+    const file = businessImageInput.files[0];
+
+    if (previewURL) {
+        URL.revokeObjectURL(previewURL);
+        previewURL = null;
+    }
+
+    imagePreviewContainer.hidden = true;
+    imagePreview.removeAttribute("src");
+
+    if (!file) return;
+
+    const types = ["image/jpeg", "image/png", "image/webp"];
+
+    if (!types.includes(file.type) || file.size > 5 * 1024 * 1024) {
+        businessImageInput.value = "";
+
+        mostrarFormularioMensaje(
+            "Selecciona JPG, PNG o WebP de máximo 5 MB.",
+            "error"
+        );
+
+        return;
+    }
+
+    previewURL = URL.createObjectURL(file);
+    imagePreview.src = previewURL;
+    imagePreviewContainer.hidden = false;
+
+    limpiarFormularioMensaje();
+});
+
+removeImageBtn?.addEventListener("click", () => {
+    businessImageInput.value = "";
+    imagePreviewContainer.hidden = true;
+    imagePreview.removeAttribute("src");
+
+    if (previewURL) {
+        URL.revokeObjectURL(previewURL);
+        previewURL = null;
+    }
+});
+
 // ==========================================
 // VERIFICAR REGISTRO
 // ==========================================
@@ -203,142 +261,119 @@ async function verificarRegistro() {
 // GUARDAR NEGOCIO
 // ==========================================
 
-async function guardarNegocio(event) {
 
+async function guardarNegocio(event) {
     event.preventDefault();
 
-    const documento =
-        businessForm.dataset.documento;
+    const documento = businessForm.dataset.documento;
 
     if (!documento) {
-
         mostrarFormularioMensaje(
             "Primero debes verificar tu documento.",
             "error"
         );
-
         return;
     }
 
+    const name = document.getElementById("business-name").value.trim();
+    const category = document.getElementById("business-category").value;
+    const description = document.getElementById("business-description").value.trim();
+    const city = document.getElementById("business-city").value.trim();
+    const whatsapp = document.getElementById("business-whatsapp").value.trim();
+    const instagram = document.getElementById("business-instagram").value.trim();
+    const website = document.getElementById("business-website").value.trim();
+    const file = businessImageInput.files[0];
 
-    // ==================================
-    // DATOS
-    // ==================================
-
-    const name =
-        document.getElementById("business-name")
-            .value.trim();
-
-    const category =
-        document.getElementById("business-category")
-            .value;
-
-    const description =
-        document.getElementById("business-description")
-            .value.trim();
-
-    const city =
-        document.getElementById("business-city")
-            .value.trim();
-
-    const whatsapp =
-        document.getElementById("business-whatsapp")
-            .value.trim();
-
-    const instagram =
-        document.getElementById("business-instagram")
-            .value.trim();
-
-    const website =
-        document.getElementById("business-website")
-            .value.trim();
-
-    const image =
-        document.getElementById("business-image")
-            .value.trim();
-
-
-    // ==================================
-    // VALIDACIÓN
-    // ==================================
-
-    if (
-        !name ||
-        !category ||
-        !description ||
-        !city ||
-        !whatsapp ||
-        !image
-    ) {
-
+    if (!name || !category || !description || !city || !whatsapp || !file) {
         mostrarFormularioMensaje(
-            "Completa todos los campos obligatorios.",
+            "Completa los campos obligatorios y selecciona una imagen.",
             "error"
         );
-
         return;
     }
 
+    if (
+        !["image/jpeg", "image/png", "image/webp"].includes(file.type) ||
+        file.size > 5 * 1024 * 1024
+    ) {
+        mostrarFormularioMensaje(
+            "Selecciona JPG, PNG o WebP de máximo 5 MB.",
+            "error"
+        );
+        return;
+    }
 
     businessSubmitBtn.disabled = true;
-
-    businessSubmitBtn.textContent =
-        "Enviando...";
-
+    businessSubmitBtn.textContent = "Subiendo imagen...";
     limpiarFormularioMensaje();
 
-
-    // ==================================
-    // FIRESTORE
-    // ==================================
-
     try {
+        // 1. Subir imagen a Hostinger.
+        const formData = new FormData();
+        formData.append("image", file);
 
-        await addDoc(
-            collection(db, "businesses"),
+        const response = await fetch(
+            "/api/upload-business-image.php",
             {
-                name: name,
-                category: category,
-                description: description,
-                city: city,
-                whatsapp: whatsapp,
-                instagram: instagram,
-                website: website,
-                image: image,
-                document: documento,
-                status: "pending",
-                createdAt: serverTimestamp()
+                method: "POST",
+                body: formData
             }
         );
 
+        const result = await response.json();
 
+        if (!response.ok || !result.success || !result.url) {
+            throw new Error(
+                result.message || "No se pudo subir la imagen."
+            );
+        }
+
+        // 2. Guardar datos y URL en Firestore.
+        businessSubmitBtn.textContent = "Guardando negocio...";
+
+        await addDoc(collection(db, "businesses"), {
+            name,
+            category,
+            description,
+            city,
+            whatsapp,
+            instagram,
+            website,
+            image: result.url,
+            imagePath: result.path,
+            document: documento,
+            status: "pending",
+            createdAt: serverTimestamp()
+        });
+
+        // 3. Confirmar y limpiar formulario.
         mostrarFormularioMensaje(
             "¡Negocio enviado correctamente! Quedará pendiente de revisión.",
             "success"
         );
 
         businessForm.reset();
-
         delete businessForm.dataset.documento;
 
-    } catch (error) {
+        imagePreviewContainer.hidden = true;
+        imagePreview.removeAttribute("src");
 
-        console.error(
-            "Error guardando negocio:",
-            error
-        );
+        if (previewURL) {
+            URL.revokeObjectURL(previewURL);
+            previewURL = null;
+        }
+
+    } catch (error) {
+        console.error("Error guardando negocio:", error);
 
         mostrarFormularioMensaje(
-            "No fue posible enviar el negocio. Inténtalo nuevamente.",
+            error.message || "No fue posible enviar el negocio. Inténtalo nuevamente.",
             "error"
         );
 
     } finally {
-
         businessSubmitBtn.disabled = false;
-
-        businessSubmitBtn.textContent =
-            "Enviar negocio a revisión";
+        businessSubmitBtn.textContent = "Enviar negocio a revisión";
     }
 }
 
@@ -429,69 +464,68 @@ async function cargarNegociosAprobados() {
 
 function crearTarjetaNegocio(business) {
 
-    const card =
-        document.createElement("article");
-
-    card.className =
-        "negocio-card";
+    const card = document.createElement("article");
+    card.className = "negocio-card";
 
 
     // ==================================
     // IMAGEN
     // ==================================
 
-    const image =
-        document.createElement("img");
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "negocio-image-wrapper";
 
-    image.className =
-        "negocio-image";
+    const image = document.createElement("img");
 
-    image.src =
-        business.image;
+    image.className = "negocio-image";
 
-    image.alt =
-        business.name || "Negocio";
+    image.src = business.image;
 
-    image.loading =
-        "lazy";
+    image.alt = business.name || "Negocio";
+
+    image.loading = "lazy";
+
+    imageWrapper.appendChild(image);
 
 
     // ==================================
     // CONTENIDO
     // ==================================
 
-    const content =
-        document.createElement("div");
+    const content = document.createElement("div");
 
-    content.className =
-        "negocio-content";
+    content.className = "negocio-content";
 
 
-    // Categoría
-    const category =
-        document.createElement("span");
+    // ==================================
+    // CATEGORÍA
+    // ==================================
 
-    category.className =
-        "negocio-category";
+    const category = document.createElement("span");
+
+    category.className = "negocio-category";
 
     category.textContent =
         business.category || "Negocio";
 
 
-    // Nombre
-    const title =
-        document.createElement("h3");
+    // ==================================
+    // NOMBRE
+    // ==================================
+
+    const title = document.createElement("h3");
 
     title.textContent =
         business.name || "Sin nombre";
 
 
-    // Descripción
-    const description =
-        document.createElement("p");
+    // ==================================
+    // DESCRIPCIÓN
+    // ==================================
 
-    description.className =
-        "negocio-description";
+    const description = document.createElement("p");
+
+    description.className = "negocio-description";
 
     description.textContent =
         business.description || "";
@@ -501,20 +535,18 @@ function crearTarjetaNegocio(business) {
     // INFORMACIÓN
     // ==================================
 
-    const info =
-        document.createElement("div");
+    const info = document.createElement("div");
 
-    info.className =
-        "negocio-info";
+    info.className = "negocio-info";
 
 
     if (business.city) {
 
-        const city =
-            document.createElement("span");
+        const city = document.createElement("span");
 
         city.innerHTML =
-            `<i class="fas fa-location-dot"></i> ${escapeHTML(business.city)}`;
+            `<i class="fas fa-location-dot"></i>
+             <span>${escapeHTML(business.city)}</span>`;
 
         info.appendChild(city);
     }
@@ -524,111 +556,80 @@ function crearTarjetaNegocio(business) {
     // BOTONES
     // ==================================
 
-    const actions =
-        document.createElement("div");
+    const actions = document.createElement("div");
 
-    actions.className =
-        "negocio-actions";
+    actions.className = "negocio-actions";
 
 
-    // WhatsApp
-    if (business.whatsapp) {
+    // ==================================
+    // WHATSAPP
+    // ==================================
 
-        const whatsapp =
-            document.createElement("a");
+  if (business.whatsapp) {
+    const whatsapp = document.createElement("a");
+    whatsapp.className = "negocio-btn negocio-btn-primary";
 
-        whatsapp.className =
-            "negocio-btn primary";
+    const numero = business.whatsapp.replace(/\D/g, "");
 
-        const numero =
-            business.whatsapp.replace(
-                /\D/g,
-                ""
-            );
+    const mensaje = encodeURIComponent(
+        `Hola, vi tu negocio en josecuestanovoa.com y quisiera obtener más información sobre ${business.name || "tu negocio"}.`
+    );
 
-        const mensaje =
-            encodeURIComponent(
-                `Hola, vi tu negocio en josecuestanovoa.com y quisiera obtener más información sobre ${business.name || "tu negocio"}.`
-            );
+    whatsapp.href = `https://wa.me/${numero}?text=${mensaje}`;
+    whatsapp.target = "_blank";
+    whatsapp.rel = "noopener noreferrer";
 
-        whatsapp.href =
-            `https://wa.me/${numero}?text=${mensaje}`;
+    whatsapp.innerHTML = `
+        <i class="fab fa-whatsapp"></i>
+        <span>Contactar por WhatsApp</span>
+    `;
 
-        whatsapp.target =
-            "_blank";
+    actions.appendChild(whatsapp);
+}
 
-        whatsapp.rel =
-            "noopener noreferrer";
 
-        whatsapp.innerHTML =
-            `<i class="fab fa-whatsapp"></i> WhatsApp`;
+    // ==================================
+    // INSTAGRAM
+    // ==================================
 
-        actions.appendChild(whatsapp);
+if (business.instagram) {
+    const instagram = document.createElement("a");
+    instagram.className = "negocio-btn negocio-btn-secondary";
+
+    let instagramURL = business.instagram.trim();
+
+    if (instagramURL && !instagramURL.startsWith("http")) {
+        instagramURL =
+            `https://instagram.com/${instagramURL.replace(/^@/, "")}`;
     }
 
+    instagram.href = instagramURL;
+    instagram.target = "_blank";
+    instagram.rel = "noopener noreferrer";
 
-    // Instagram
-    if (business.instagram) {
+    instagram.innerHTML = `
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+    `;
 
-        const instagram =
-            document.createElement("a");
+    actions.appendChild(instagram);
+}
 
-        instagram.className =
-            "negocio-btn secondary";
+if (business.website) {
+    const website = document.createElement("a");
+    website.className = "negocio-btn negocio-btn-secondary";
 
-        let instagramURL =
-            business.instagram.trim();
+    website.href = business.website;
+    website.target = "_blank";
+    website.rel = "noopener noreferrer";
 
-        if (
-            instagramURL &&
-            !instagramURL.startsWith("http")
-        ) {
+    website.innerHTML = `
+        <i class="fas fa-globe"></i>
+        <span>Sitio web</span>
+    `;
 
-            instagramURL =
-                `https://instagram.com/${instagramURL.replace(/^@/, "")}`;
-        }
-
-        instagram.href =
-            instagramURL;
-
-        instagram.target =
-            "_blank";
-
-        instagram.rel =
-            "noopener noreferrer";
-
-        instagram.innerHTML =
-            `<i class="fab fa-instagram"></i> Instagram`;
-
-        actions.appendChild(instagram);
-    }
-
-
-    // Sitio web
-    if (business.website) {
-
-        const website =
-            document.createElement("a");
-
-        website.className =
-            "negocio-btn secondary";
-
-        website.href =
-            business.website;
-
-        website.target =
-            "_blank";
-
-        website.rel =
-            "noopener noreferrer";
-
-        website.innerHTML =
-            `<i class="fas fa-globe"></i> Sitio web`;
-
-        actions.appendChild(website);
-    }
-
-
+    actions.appendChild(website);
+}
     // ==================================
     // ARMAR TARJETA
     // ==================================
@@ -642,11 +643,10 @@ function crearTarjetaNegocio(business) {
     content.appendChild(info);
 
     if (actions.children.length > 0) {
-
         content.appendChild(actions);
     }
 
-    card.appendChild(image);
+    card.appendChild(imageWrapper);
 
     card.appendChild(content);
 
