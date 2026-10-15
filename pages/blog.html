@@ -305,21 +305,24 @@
 
 
                         <div class="form-group">
-                            <label for="business-image">Imagen o logo del negocio</label>
+                            <label for="business-image">
+                                URL de la imagen del negocio *
+                            </label>
 
-                            <input type="file" id="business-image" name="image" accept="image/jpeg,image/png,image/webp"
-                                required>
+                            <input type="url" id="business-image" name="business-image"
+                                placeholder="https://ejemplo.com/mi-negocio.jpg" required>
 
-                            <small>JPG, PNG o WebP. Máximo 5 MB.</small>
+                            <small>
+                                Pega el enlace público directo de una imagen JPG, PNG o WebP.
+                            </small>
 
                             <div id="business-image-preview-container" hidden>
-                                <img id="business-image-preview" alt="Vista previa del negocio"
-                                    style="display:block;max-width:100%;max-height:260px;object-fit:contain;margin-top:12px;border-radius:12px;">
-
-                                <button type="button" id="business-image-remove">
-                                    Quitar imagen
-                                </button>
+                                <img id="business-image-preview" alt="Vista previa de la imagen del negocio">
                             </div>
+
+                            <button type="button" id="business-image-remove">
+                                Quitar imagen
+                            </button>
                         </div>
 
 
